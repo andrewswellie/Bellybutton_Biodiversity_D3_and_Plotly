@@ -52,7 +52,7 @@ function buildCharts(sample) {
       margin: { t:0 }
     };
 
-    Plotly.newPlot("bubble", data, layout);
+    Plotly.newPlot("bubble", data, layout, {scrollZoom: true});
   });
 
     // @TODO: Build a Pie Chart
