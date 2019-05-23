@@ -1,6 +1,5 @@
 function buildMetadata(sample) {
 
-  // Use `d3.json` to fetch the metadata for a sample
   // Use d3 to select the panel with id of `#sample-metadata`
   var selector = d3.select("#sample-metadata");
 
@@ -8,21 +7,14 @@ function buildMetadata(sample) {
   selector.html("");
 
   // Use `Object.entries` to add each key and value pair to the panel
-  // Hint: Inside the loop, you will need to use d3 to append new
-  // tags for each key-value in the metadata.
-
   d3.json(`/metadata/` + `${sample}`).then((metaSample) => {
     Object.entries(metaSample).forEach(function ([key, value]) {
-      //var age = metaSample.dataset.AGE;
-      //var bb_type = metaSample.dataset.BBTYPE;
       selector
         .append("p")
         .text(`${key}:${value}`);
     });
   });
-  // BONUS: Build the Gauge Chart
-  // buildGauge(data.WFREQ);
-}
+ }
 
 function buildCharts(sample) {
 
@@ -40,15 +32,13 @@ function buildCharts(sample) {
       y: sample_values,
       type: "scatter",
       mode: "markers",
-      //name: "sample names",
       marker: {
         color: otu_ids,
         size: sample_values,
-        //symbol: "circle"
+        symbol: "circle"
       },
       text: text,
       textinfo: 'none',
-      //hovertext: data.otu_labels
       hoverinfo: "x+y+text"
     };
 
@@ -62,14 +52,10 @@ function buildCharts(sample) {
       margin: { t:0 }
     };
 
-
     Plotly.newPlot("bubble", data, layout);
   });
 
     // @TODO: Build a Pie Chart
-    // HINT: You will need to use slice() to grab the top 10 sample_values,
-    // otu_ids, and labels (10 each).
-
     var pieurl = (`/samples/` + `${sample}`);
 
     d3.json(pieurl).then(function (data) {
