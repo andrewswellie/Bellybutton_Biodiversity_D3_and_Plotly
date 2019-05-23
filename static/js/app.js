@@ -11,7 +11,7 @@ function buildMetadata(sample) {
     Object.entries(metaSample).forEach(function ([key, value]) {
       selector
         .append("p")
-        .text(`${key}:${value}`);
+        .text(`${key}: ${value}`);
     });
   });
  }
