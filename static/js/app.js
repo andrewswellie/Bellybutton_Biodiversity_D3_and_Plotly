@@ -86,7 +86,7 @@ function buildCharts(sample) {
       };
       var data = [trace1];
       var layout = {
-        title: "Pie Chart",
+        title: "Top Observed Microbes",
       };
 
       Plotly.newPlot("pie", data, layout);
