@@ -12,16 +12,9 @@ function buildMetadata(sample) {
       selector
         .append("p")
         .text(`${key}: ${value}`);
-
-    // Using `Object.entries` to add each key and value pair to the panel
-    // Using d3 to append new tags for each key-value in the metadata.
-    Object.entries(sampleData).forEach(([key, value]) => {
-      PANEL.append('h6').text(`${key}, ${value}`);
     });
-    buildGauge(sampleData.WFREQ)
   });
-}
-
+ }
 
 function buildCharts(sample) {
 
